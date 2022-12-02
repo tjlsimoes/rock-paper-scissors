@@ -59,7 +59,14 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     for (let i = 0; i < 5; i++) {
         console.log(playRound());
+    }
 
+    if (you > comp) {
+        return "Congratulations! You've won!";
+    }   else if (comp < you) {
+        return "Try again... A computer has beaten you..."
+    }   else {
+        return "It's a draw!"
     }
 }
 
