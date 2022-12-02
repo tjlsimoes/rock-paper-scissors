@@ -42,9 +42,34 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-/* The question then is: how to keep track of score?
+function keepScore (you, comp) {
+    you = 0;
+    comp = 0;
 
-/*
+    let result = playRound().substring(0, 13);
+
+    console.log(result);
+
+    if (result === "You have lost" ) {
+        comp += 1;
+        return `You: ${you}. Computer: ${comp}.`
+    } else if (result === "You have won!" ) {
+        you += 1;
+        return `You: ${you}. Computer: ${comp}.`
+    } else {
+        return `You: ${you}. Computer: ${comp}.`
+    }
+}
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+        keepScore();
+    }
+}
+
+console.log(game());
+// The question then is: how to keep track of score?
 
 /* 
 Play the game five times in a row. 
@@ -55,6 +80,14 @@ console.log(playRound());
 console.log(playRound());
 console.log(playRound());
 console.log(playRound());
-/*
+
+Same as: 
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound());
+    }
+}
+*/
 
 
