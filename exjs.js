@@ -79,7 +79,7 @@ How to structure the previous conditional structure whilst referencing it to the
 
 let playerSelection = prompt("Rock, Paper or Scissors?");
 
-console.log(playerSelection);
+//console.log(playerSelection);
 
 // Make function's the playerSelection parameter case-insensitive.
 
@@ -97,11 +97,12 @@ let computerSelection = getComputerChoice();
 
 computerSelection = computerSelection.toLowerCase();
 
+console.log(computerSelection);
 
 // Delineate game-round function.
 
 
-
+/*
 function playRound(playerSelection, computerSelection) {
 
     console.log(computerSelection);
@@ -124,8 +125,61 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "It's a draw!"
     }
-
-
 }
 
 console.log(playRound(playerSelection, computerSelection));
+/*
+
+/* 
+function game(): five rounds, keeping score and reporting winner or loser at the end.
+
+Define a variable i that iterates code for five times.
+Keep score: define number variable for each part to be added if the respective part wins a round.
+*/
+
+
+let a = 0;
+let b = 0;
+
+function playRound(playerSelection, computerSelection) {
+
+    if (playerSelection == "rock" && computerSelection == "scissors") {
+        return a++;
+    } else if (playerSelection == "paper" && computerSelection == "rock") { 
+        return a++;
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return a++;
+    } 
+    
+      else if (computerSelection == "rock" && playerSelection == "scissors") {
+        return b++;
+    } else if (computerSelection == "paper" && playerSelection == "rock") {
+        return b++;
+    } else if (computerSelection == "scissors" && playerSelection == "paper") {
+        return b++;
+    }
+}
+
+console.log(a);
+console.log(b);
+
+/*
+function game() {
+
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+    }
+
+    if (a > b) {
+        return "Congratulations! You've won!";
+    }   else if (a < b) {
+        return "Try again... A computer has beaten you..."
+    }   else {
+        return "It's a draw!"
+    }
+}
+
+console.log(game());
+
+*/
+
