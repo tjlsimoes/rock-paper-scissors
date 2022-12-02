@@ -91,7 +91,7 @@ console.log(playerSelection);
 // Possible ammend to that problem: conditionals.
 
 
-// Assure computerSelection is a variable of global scope. Probably not the most correct thing to do...
+// Assure computerSelection is a variable of global scope. Probably not the most correct thing to do, but...
 
 let computerSelection = getComputerChoice();
 
@@ -102,7 +102,7 @@ console.log(computerSelection);
 // Delineate game-round function.
 
 
-/*
+
 function playRound(playerSelection, computerSelection) {
 
     console.log(computerSelection);
@@ -126,9 +126,33 @@ function playRound(playerSelection, computerSelection) {
         return "It's a draw!"
     }
 }
+// console.log(playRound(playerSelection, computerSelection));
 
-console.log(playRound(playerSelection, computerSelection));
+
+/* 
+There is a need to reask the player for a new choice, upon game restarting. 
+Function below just assumed the same playerSelection for all the five attempts.
+So one has to find a way to integrate the prompt inside the game or the playRound functions.
+
 /*
+
+// console.log(playRound(playerSelection, computerSelection));
+
+
+/* Let's just try to iterate this function without keeping score.
+
+function game() {
+
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection, computerSelection);
+    }
+
+}
+
+console.log(game());
+/*
+
+
 
 /* 
 function game(): five rounds, keeping score and reporting winner or loser at the end.
@@ -137,33 +161,34 @@ Define a variable i that iterates code for five times.
 Keep score: define number variable for each part to be added if the respective part wins a round.
 */
 
-
+/*
 let a = 0;
 let b = 0;
 
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
-        return a++;
+        return a = 1;
     } else if (playerSelection == "paper" && computerSelection == "rock") { 
-        return a++;
+        return a = 1;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return a++;
+        return a = 1;
     } 
     
       else if (computerSelection == "rock" && playerSelection == "scissors") {
-        return b++;
+        return b = 1;
     } else if (computerSelection == "paper" && playerSelection == "rock") {
-        return b++;
+        return b = 1;
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        return b++;
+        return b = 1;
     }
 }
 
+console.log(playRound(playerSelection, computerSelection));
 console.log(a);
 console.log(b);
 
-/*
+
 function game() {
 
     for (let i = 0; i < 5; i++) {
@@ -182,4 +207,3 @@ function game() {
 console.log(game());
 
 */
-
