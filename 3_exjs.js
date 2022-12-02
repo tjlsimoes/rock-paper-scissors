@@ -63,9 +63,9 @@ function game() {
 
     if (you > comp) {
         return "Congratulations! You've won!";
-    }   else if (comp < you) {
+    }   else if (comp > you) {
         return "Try again... A computer has beaten you..."
-    }   else {
+    }   else if (comp == you) {
         return "It's a draw!"
     }
 }
