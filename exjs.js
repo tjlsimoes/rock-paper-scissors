@@ -90,13 +90,19 @@ console.log(playerSelection);
 // Currently the prompt accepts all kinds of inputs, be they equal to Rock, Paper, Scissors or not. Possible point to ammend later on.
 // Possible ammend to that problem: conditionals.
 
-// Delineate game function.
+
+// Assure computerSelection is a variable of global scope. Probably not the most correct thing to do...
+
+let computerSelection = getComputerChoice();
+
+computerSelection = computerSelection.toLowerCase();
+
+
+// Delineate game-round function.
 
 
 
 function playRound(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice();
-    computerSelection = computerSelection.toLowerCase();
 
     console.log(computerSelection);
     console.log(playerSelection);
@@ -122,4 +128,4 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-playRound();
+console.log(playRound(playerSelection, computerSelection));
