@@ -57,10 +57,13 @@ function playRound(playerSelection, computerSelection) {
 
 
 function game() {
-    for (let i = 0; i < 5; i++) {
+
+    //Remove the logic that plays exactly five rounds
+    /* for (let i = 0; i < 5; i++) {
         console.log(playRound());
     }
-
+    */
+   
     if (you > comp) {
         return "Congratulations! You've won!";
     }   else if (comp > you) {
