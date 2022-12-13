@@ -1,6 +1,8 @@
 let you = 0;
 let comp = 0;
 let PlayerSelection;
+const div = document.querySelector("#result");
+
 
 function getComputerChoice () {
     let x = Math.random();
@@ -17,6 +19,8 @@ function getComputerChoice () {
 }
 
 
+
+
 function playRound(playersChoice, computerSelection) {
 
     computerSelection = getComputerChoice();
@@ -24,34 +28,143 @@ function playRound(playersChoice, computerSelection) {
 
     playersChoice = playerSelection;
 
-    const div = document.querySelector("#result");
-
     if (playerSelection == "rock" && computerSelection == "scissors") {
+        
         you += 1;
-        return div.textContent = `You have won! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            return   div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }  else {
+            return div.textContent = `You have won! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+        }
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-        you += 1; 
-        return div.textContent = `You have won! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        
         you += 1;
-        return div.textContent = `You have won! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            return   div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }   else {
+            return div.textContent = `You have won! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
+        }
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        
+        you += 1;
+        
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            return   div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+            
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }   else {
+            return div.textContent = `You have won! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+        }
     } 
     
+
       else if (computerSelection == "rock" && playerSelection == "scissors") {
+        
         comp += 1;
-        return div.textContent = `You have lost! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+        
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`
+            return   div.textContent = `Congratulations! You've won! You: ${you}. Computer: ${comp}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }   else {
+            return div.textContent = `You have lost! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+        }
     } else if (computerSelection == "paper" && playerSelection == "rock") {
+        
         comp += 1;
-        return div.textContent = `You have lost! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
+
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            return   div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }   else {
+            return div.textContent = `You have lost! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
+        }
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
+
         comp += 1;
-        return div.textContent = `You have lost! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+
+        if (you === 5) {
+
+            let compfinal = comp;
+            comp = 0;
+            you = 0;
+
+            return   div.textContent = `Congratulations! You've won! You: 5. Computer: ${compfinal}.`;
+        }   else if (comp === 5) {
+
+            let youfinal = you;
+            comp = 0;
+            you = 0;
+
+            return div.textContent = `Try again... A computer has beaten you... You: ${youfinal}. Computer: 5.`;
+        }   else {
+            return div.textContent = `You have lost! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+        }
     } else {
         return div.textContent = `It's a draw! You: ${you}. Computer: ${comp}.`;
     }
     
 
 }
+
 
 
 const buttons = document.querySelectorAll("button");
@@ -63,25 +176,3 @@ const buttons = document.querySelectorAll("button");
             playRound();
         });
     });
-
-
-/*function game() {
-
-    //Remove the logic that plays exactly five rounds
-     for (let i = 0; i < 5; i++) {
-        console.log(playRound());
-    }
-    
-   
-    if (you > comp) {
-        return "Congratulations! You've won!";
-    }   else if (comp > you) {
-        return "Try again... A computer has beaten you..."
-    }   else if (comp == you) {
-        return "It's a draw!"
-    }
-}
-
-*/
-
-// console.log(game());
