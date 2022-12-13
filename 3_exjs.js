@@ -1,7 +1,6 @@
-// What if one merges the keepScore function and the playRound function
-
 let you = 0;
 let comp = 0;
+let PlayerSelection;
 
 function getComputerChoice () {
     let x = Math.random();
@@ -17,52 +16,62 @@ function getComputerChoice () {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
 
-    playerSelection = prompt("Rock, Paper or Scissors?");
-    playerSelection = playerSelection.toLowerCase();
+function playRound(playersChoice, computerSelection) {
 
     computerSelection = getComputerChoice();
     computerSelection = computerSelection.toLowerCase();
 
-    console.log(playerSelection);
-    console.log(computerSelection);
+    playersChoice = playerSelection;
+
+    const div = document.querySelector("#result");
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
         you += 1;
-        return `You have won! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have won! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         you += 1; 
-        return `You have won! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have won! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         you += 1;
-        return `You have won! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have won! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
     } 
     
       else if (computerSelection == "rock" && playerSelection == "scissors") {
         comp += 1;
-        return `You have lost! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have lost! Rock triumphs over scissors! You: ${you}. Computer: ${comp}.`;
     } else if (computerSelection == "paper" && playerSelection == "rock") {
         comp += 1;
-        return `You have lost! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have lost! Paper triumphs over rock! You: ${you}. Computer: ${comp}.`;
     } else if (computerSelection == "scissors" && playerSelection == "paper") {
         comp += 1;
-        return `You have lost! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
+        return div.textContent = `You have lost! Scissors triumph over paper! You: ${you}. Computer: ${comp}.`;
     } else {
-        return `It's a draw! You: ${you}. Computer: ${comp}.`
+        return div.textContent = `It's a draw! You: ${you}. Computer: ${comp}.`;
     }
+    
 
 }
 
 
+const buttons = document.querySelectorAll("button");
 
-function game() {
+    buttons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+            playerSelection = button.id;
+            playRound();
+        });
+    });
+
+
+/*function game() {
 
     //Remove the logic that plays exactly five rounds
-    /* for (let i = 0; i < 5; i++) {
+     for (let i = 0; i < 5; i++) {
         console.log(playRound());
     }
-    */
+    
    
     if (you > comp) {
         return "Congratulations! You've won!";
@@ -73,5 +82,6 @@ function game() {
     }
 }
 
+*/
 
-console.log(game());
+// console.log(game());
